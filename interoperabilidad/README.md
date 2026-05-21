@@ -147,6 +147,16 @@ El sistema contempla distintos perfiles de usuario:
 - Protección de datos empresariales
 
 ---
+#  Flujo Operativo de Facturación
+
+1. Creación de cliente
+2. Generación de pedido
+3. Validación de factura
+4. Renderizado QWeb
+5. Conversión HTML → PDF mediante `wkhtmltopdf`
+6. Exportación interoperable JSON/XML
+
+
 
 #  Backup y Restauración
 
@@ -160,3 +170,4 @@ docker exec postgres_db pg_dump -U odoo odoo_db > backup.sql
 
 ```bash
 cat backup.sql | docker exec -i postgres_db psql -U odoo odoo_db
+```
