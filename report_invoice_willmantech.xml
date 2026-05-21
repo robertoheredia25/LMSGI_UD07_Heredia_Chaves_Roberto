@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_willmantech">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <h2>Factura de Cliente</h2>
+                                <strong>Referencia:</strong> <span t-field="doc.name"/><br/>
+                                <strong>Fecha de Emisión:</strong> <span t-field="doc.date"/>
+                            </div>
+                            <div class="col-6 text-right">
+                                <h4>WillmanTech S.L.</h4>
+                                <p>B41XXXXXX<br/>Sevilla, España</p>
+                            </div>
+                        </div>
+                        
+                        <t t-set="has_discount" t-value="any(line.discount for line in doc.invoice_line_ids)"/>
+                        
+                        <table class="table table-sm table-striped mt-4">
+                            <thead>
+                                <tr>
+                                    <th>Descripción de Producto / Servicio</th>
+                                    <th class="text-right">Cantidad</th>
+                                    <th class="text-right">Precio Unitario</th>
+                                    <t t-if="has_discount">
+                                        <th class="text-right">Descuento (%)</th>
+                                    </t>
+                                    <th class="text-right">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.invoice_line_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.name"/></td>
+                                        <td class="text-right"><span t-field="line.quantity"/></td>
+                                        <td class="text-right"><span t-field="line.price_unit"/></td>
+                                        <t t-if="has_discount">
+                                            <td class="text-right"><span t-field="line.discount"/></td>
+                                        </t>
+                                        <td class="text-right"><span t-field="line.price_subtotal"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        
+                        <div class="row justify-content-end mt-4">
+                            <div class="col-4 text-right">
+                                <table class="table table-sm table-borderless">
+                                    <tr class="border-top">
+                                        <td><strong>Total Neto:</strong></td>
+                                        <td><span t-field="doc.amount_total"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
