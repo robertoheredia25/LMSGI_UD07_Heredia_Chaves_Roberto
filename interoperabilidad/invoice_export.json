@@ -1,0 +1,44 @@
+{
+  "invoice_id": 45892,
+  "invoice_number": "INV/2026/00142",
+  "issue_date": "2026-05-21",
+  "currency": "EUR",
+  "customer": {
+    "customer_id": 1024,
+    "legal_name": "Sistemas Avanzados de Andalucía S.A.",
+    "tax_id": "A41888999",
+    "email": "compras@sistemasavanzados.com",
+    "address": {
+      "street": "Av. de la Innovación, 4",
+      "city": "Sevilla",
+      "postal_code": "41020",
+      "country_code": "ES"
+    }
+  },
+  "invoice_lines": [
+    {
+      "line_id": 1,
+      "product_name": "Consultoría e Implantación de Infraestructura ERP/CRM Dockerizada",
+      "quantity": 1.0,
+      "unit_price": 4500.00,
+      "discount_percentage": 0.0,
+      "tax_percentage": 21.0,
+      "subtotal": 4500.00
+    },
+    {
+      "line_id": 2,
+      "product_name": "Soporte de Explotación y Mantenimiento Técnico Mensual",
+      "quantity": 2.0,
+      "unit_price": 750.00,
+      "discount_percentage": 5.0,
+      "tax_percentage": 21.0,
+      "subtotal": 1425.00
+    }
+  ],
+  "tax_summary": {
+    "tax_base": 5925.00,
+    "tax_amount": 1244.25,
+    "tax_rate": 21.0
+  },
+  "grand_total": 7169.25
+}
